@@ -1,0 +1,10 @@
+<ul>
+<% @products.each do |product| %>
+  <li>
+  <%= product.name %>
+  Qty: <%= product.qty %>
+
+  Price: $<%= product.price %>
+  </li>
+<% end %>
+</ul>

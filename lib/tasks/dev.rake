@@ -1,0 +1,7 @@
+task :fake => :environment do
+  Product.create!( :name => "Book", :qty => 10, :price => 500)
+  Product.create!( :name => "MacBook", :qty => 3, :price => 35000)
+  Product.create!( :name => "House", :qty => 0, :price => 10000000)
+  Product.create!( :name => "iPad", :qty => 1, :price => 10000)
+  Product.create!( :name => "Nexus", :qty => 1, :price => 15000)
+end
