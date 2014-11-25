@@ -5,6 +5,12 @@
   Qty: <%= product.qty %>
 
   Price: $<%= product.price %>
+
+  <%= button_to "加入購物車", cart_path( :product_id => product, :qty => 1 ) %>
+
   </li>
 <% end %>
 </ul>
+
+
+<%= render "common/cart" %>

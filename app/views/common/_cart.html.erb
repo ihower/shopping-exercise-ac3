@@ -1,0 +1,6 @@
+<h2>Cart</h2>
+<ol>
+<% current_cart.items.each do |i| %>
+  <li><%= i[:product_id] %>: <%= i[:qty] %></li>
+<% end %>
+</ol>
