@@ -57,6 +57,10 @@ class Cart
     @items = []
   end
 
+  def items_count
+    @items.map{ |x| x[:qty] }.sum
+  end
+
   private
 
   def refresh

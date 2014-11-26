@@ -6,7 +6,10 @@ class CartsController < ApplicationController
   def create
     current_cart.add_item( params[:product_id], params[:qty] || 1 )
 
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def update

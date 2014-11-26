@@ -6,14 +6,12 @@
 
   Price: $<%= product.price %>
 
-  <%= button_to "加入購物車", cart_path( :product_id => product, :qty => 1 ) %>
+  <%= button_to "加入購物車", cart_path( :product_id => product, :qty => 1 ), :remote => true %>
 
   </li>
 <% end %>
 </ul>
 
-<h2>Cart</h2>
+<h2>購物車 <span id="cart_count"><%= current_cart.items_count %></span></h2>
 
 <%= link_to "結帳!", cart_path %>
-
-<%= render "common/cart" %>
