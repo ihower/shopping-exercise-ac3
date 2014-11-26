@@ -1,0 +1,21 @@
+<h2>New Order</h2>
+
+<h3>Shopping List</h3>
+<%= render "common/cart" %>
+
+<h3>Your shipping information</h3>
+
+<%= form_for @order do |f| %>
+
+  <%= f.label "付款方式" %>
+  <%= f.select :payment_type, [ ["信用卡","credit_card"], ["ATM轉帳", "atm"], ["超商取貨", "shop"] ] %>
+
+  <%= f.label "收件人" %>
+  <%= f.text_field :receive_name %>
+
+  <%= f.label "收件地址" %>
+  <%= f.text_field :receive_address %>
+
+
+  <p><%= f.submit "送出訂單" %></p>
+<% end %>

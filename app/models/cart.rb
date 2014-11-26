@@ -53,6 +53,10 @@ class Cart
     products.map{ |p| p[:amount] }.sum
   end
 
+  def clear
+    @items = []
+  end
+
   private
 
   def refresh

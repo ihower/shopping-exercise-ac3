@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
   resource :cart
-  resource :orders
+  resources :orders
 
   namespace :admin do
     resources :products do

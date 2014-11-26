@@ -1,0 +1,9 @@
+<h2>Order list</h2>
+
+<ol>
+<% @orders.each do |order| %>
+<li>
+  $<%= order.total %> at <%= order.created_at.to_s %>
+</li>
+<% end %>
+</ol>
