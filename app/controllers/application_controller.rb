@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def setup_cart
+
     if session[:cart]
       @cart = Marshal::load(session[:cart])
     else

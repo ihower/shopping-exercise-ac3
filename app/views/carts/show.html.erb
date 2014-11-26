@@ -1,0 +1,44 @@
+<h2>Cart</h2>
+
+<%= form_tag "/cart", :method => :patch do %>
+
+<table width="400">
+<tr>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Qty</th>
+  <th>Amount</th>
+</tr>
+<% current_cart.products.each do |i| %>
+  <tr id="product_<%= i[:product_id] %>">
+    <td><%= i[:name] %><td>
+    <td><%= i[:price] %> </td>
+    <td>
+
+    <%= text_field_tag "item[#{i[:product_id]}]", i[:qty], :size => 2 %>
+
+    <%= link_to "Remove", cart_path( :product_id => i[:product_id] ), :method => :delete, :remote => :true %>
+
+    </td>
+    <td>
+      <%= i[:amount] %>
+    </td>
+  </tr>
+<% end %>
+
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>Total: <%= current_cart.total %></td>
+
+</tr>
+</table>
+
+
+
+<%= submit_tag "修改數量" %>
+<% end %>
+
+
+<%= button_to "確認結帳", new_orders_path %>

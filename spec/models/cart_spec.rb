@@ -36,4 +36,40 @@ RSpec.describe Cart, :type => :model do
 
   end
 
+  describe ".update" do
+    it "should update qty" do
+      cart.add_item(p2.id, 1)
+      cart.update(p2.id, 3)
+
+      expect(cart.items).to eq( [ { :product_id => p2.id, :qty => 3 }] )
+    end
+
+    it "should remove item if qty <= 0" do
+      cart.add_item(p2.id, 1)
+      cart.update(p2.id, 0)
+
+      expect(cart.items).to eq( [] )
+    end
+
+  end
+
+  describe ".remove" do
+    it "should remove product" do
+      cart.add_item(p2.id, 1)
+      cart.remove(p2.id)
+
+      expect(cart.items).to eq([])
+    end
+  end
+
+  describe ".total" do
+    it "should give me total" do
+      cart.add_item(p2.id, 1)
+      cart.add_item(p3.id, 2)
+
+      expect(cart.total).to eq(800)
+
+    end
+  end
+
 end
