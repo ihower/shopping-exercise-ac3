@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :orders
 
   namespace :admin do
+    resources :orders
+
     resources :products do
       post :export, :on => :collection
     end
