@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   resource :cart
+
+  namespace :admin do
+    resources :products do
+      post :export, :on => :collection
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

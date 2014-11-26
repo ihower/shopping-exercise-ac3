@@ -5,3 +5,10 @@ task :fake => :environment do
   Product.create!( :name => "iPad", :qty => 1, :price => 10000)
   Product.create!( :name => "Nexus", :qty => 1, :price => 15000)
 end
+
+task :fake_many => :environment do
+
+  100000.times do |i|
+    Product.create!( :name => "Book #{i}", :qty => 1, :price => 10)
+  end
+end

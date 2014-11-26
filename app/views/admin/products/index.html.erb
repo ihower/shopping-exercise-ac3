@@ -1,0 +1,19 @@
+Product Export!
+
+<p>
+<%= link_to "Export CSV", export_admin_products_path, :method => :post %>
+</p>
+
+<p>
+<%= link_to "Download CSV", admin_products_path( :format => :csv ) %>
+</p>
+
+<h2>Export Histroy</h2>
+
+<ul>
+<%  Export.all.each do |e| %>
+
+  <li><%= link_to "File", e.export.url %> at <%= e.created_at.to_s %></li>
+
+<% end %>
+</ul>

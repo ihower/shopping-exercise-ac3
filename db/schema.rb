@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124141228) do
+ActiveRecord::Schema.define(version: 20141126024733) do
+
+  create_table "exports", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "export_file_name"
+    t.string   "export_content_type"
+    t.integer  "export_file_size"
+    t.datetime "export_updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "name"
