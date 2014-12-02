@@ -24,14 +24,16 @@ class OrdersController < ApplicationController
     end
 
     if @order.save
-
       current_cart.clear
 
-      flash[:notice] = "感謝購物!"
-      redirect_to root_path
+      redirect_to @order.paypal_url
     else
       render :action => :new
     end
+  end
+
+  def show
+    @order = current_user.orders.find(params[:id])
   end
 
   protected

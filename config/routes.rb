@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  post "/paypal/webhook" => "paypal#webhook"
+  post "/paypal/return" => "paypal#redirect" # for paypal return
+
   devise_for :users
 
   require 'sidekiq/web'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126042553) do
+ActiveRecord::Schema.define(version: 20141202075104) do
 
   create_table "exports", force: true do |t|
     t.integer  "user_id"
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 20141126042553) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "payment_status"
+    t.datetime "paid_at"
+    t.string   "paypal_status"
+    t.string   "paypal_transaction_id"
+    t.text     "paypal_params"
   end
 
   create_table "products", force: true do |t|
