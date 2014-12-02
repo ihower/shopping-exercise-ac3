@@ -1,0 +1,7 @@
+
+<h2>Confirm order!</h2>
+
+<p>paypal_payment_id: <%= @order.paypal_payment_id %></p>
+<p>paypal_payer_id: <%= @order.paypal_payer_id %></p>
+
+<%= button_to "Confirm!", execute_order_path(@order) %>

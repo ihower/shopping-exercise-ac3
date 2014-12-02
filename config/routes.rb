@@ -6,10 +6,17 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   resource :cart
-  resources :orders
+  resources :orders do
+    member do
+      get :approved
+      post :execute
+    end
+  end
+
 
   namespace :admin do
     resources :orders
+
 
     resources :products do
       post :export, :on => :collection

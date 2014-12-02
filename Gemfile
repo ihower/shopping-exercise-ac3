@@ -13,6 +13,8 @@ gem 'paperclip'
 gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'sidekiq'
 
+gem 'paypal-sdk-rest'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

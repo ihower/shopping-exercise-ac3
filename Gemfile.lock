@@ -74,6 +74,12 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paypal-sdk-core (0.3.1)
+      multi_json (~> 1.0)
+      xml-simple
+    paypal-sdk-rest (0.7.3)
+      paypal-sdk-core (~> 0.3.1)
+      uuidtools (~> 2.1)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -159,8 +165,10 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
+    xml-simple (1.1.4)
 
 PLATFORMS
   ruby
@@ -171,6 +179,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   paperclip
+  paypal-sdk-rest
   rails (= 4.1.8)
   rspec-rails
   sass-rails (~> 4.0.3)

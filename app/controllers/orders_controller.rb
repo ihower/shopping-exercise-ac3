@@ -24,14 +24,42 @@ class OrdersController < ApplicationController
     end
 
     if @order.save
-
       current_cart.clear
 
-      flash[:notice] = "感謝購物!"
-      redirect_to root_path
+      @payment = PaypalPayment.build(@order, :return_url => approved_order_url(@order),
+                                           :cancel_url => root_url )
+      if @payment.create
+        redirect_to @order.paypal_approval_url
+      else
+        redirect_to root_path
+      end
     else
       render :action => :new
     end
+  end
+
+  def approved
+    @order = current_user.orders.find(params[:id])
+
+    if params[:paymentId]
+      @order.paypal_payer_id = params[:PayerID]
+      @order.paypal_return_at = Time.now
+      @order.save!
+    end
+  end
+
+  def execute
+    @order = current_user.orders.find(params[:id])
+    payment = PaypalPayment.find_by(@order)
+
+    if payment.execute
+      flash[:notice] = "Paypal 付款成功"
+      redirect_to orders_path
+    else
+      flash[:notice] = "Paypal 付款失敗"
+      redirect_to orders_path
+    end
+
   end
 
   protected

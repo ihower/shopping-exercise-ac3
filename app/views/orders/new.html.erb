@@ -18,6 +18,8 @@
   <%= f.label "收件地址" %>
   <%= f.text_field :receive_address %>
 
-
-  <p><%= f.submit "送出訂單" %></p>
+  <!--
+    https://developer.paypal.com/docs/classic/api/buttons/
+  -->
+  <p><%= image_submit_tag "https://www.paypalobjects.com/en_US/i/btn/x-click-but6.gif" %></p>
 <% end %>

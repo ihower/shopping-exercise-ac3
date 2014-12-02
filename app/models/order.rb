@@ -5,8 +5,6 @@ class Order < ActiveRecord::Base
 
   before_save :setup_total
 
-  validates_numericality_of :total, :greater_than => 0
-
   validate :check_enough_qty
 
   protected
